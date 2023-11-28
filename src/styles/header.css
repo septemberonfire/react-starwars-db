@@ -1,0 +1,20 @@
+.header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+
+.headline {
+  font-size: 24px;
+  color: white;
+}
+
+.nav-bar {
+  display: flex;
+  list-style: none;
+  gap: 12px;
+  color: rgb(11, 223, 159);
+  font-size: 16px;
+}
