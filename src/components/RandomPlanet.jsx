@@ -1,5 +1,6 @@
 import "../styles/random-planet.css";
 import API from "../services/swapi-service";
+import Loader from "./Loader";
 import { useEffect, useState } from "react";
 
 const RandomPlanet = () => {
@@ -28,7 +29,7 @@ const RandomPlanet = () => {
   return (
     <div className="random-planet">
       {planet.id === "" ? (
-        <div className="loader"></div>
+        <Loader />
       ) : (
         <>
           <img

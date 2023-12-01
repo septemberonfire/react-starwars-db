@@ -7,7 +7,13 @@ const getResource = async (url) => {
 
 const getAllPeople = async (setData) => {
   const res = await getResource("/people/");
-  setData(res.results);
+  const peopleWithID = res.results.map((el, id) => {
+    return {
+      ...el,
+      id
+    }
+  })
+  setData(peopleWithID);
 };
 
 const getPerson = async (setData, id) => {

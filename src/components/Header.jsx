@@ -3,7 +3,7 @@ import '../styles/header.css'
 function Header() {
   return (
     <div className="header">
-      <h3 className="headline">Star DB</h3>
+      <h3 className="headline">Star Wars DB</h3>
       <ul className="nav-bar">
         <li className="nav-bar-item">
           People
