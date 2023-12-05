@@ -4,10 +4,10 @@
   background-color: rgba(0, 0, 0, 0.4);
   border-radius: 16px;
   padding: 12px;
-  display: flex;
   gap: 16px;
   color: white;
   width: fit-content;
+  height: fit-content;
 }
 
 .item-list {

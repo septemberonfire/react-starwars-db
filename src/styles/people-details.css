@@ -1,0 +1,21 @@
+.details {
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  padding: 12px;
+  gap: 16px;
+  color: white;
+  width: fit-content;
+  height: fit-content;
+}
+
+.person-img {
+  border-radius: 8px;
+  width: 30%;
+}
+
+.person-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

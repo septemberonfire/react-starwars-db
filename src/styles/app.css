@@ -8,3 +8,8 @@ body {
   flex-direction: column;
   gap: 24px;
 }
+
+.main-wrap {
+  display: flex;
+  justify-content: space-between;
+}
