@@ -2,19 +2,35 @@
   display: flex;
   gap: 16px;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   color: white;
 }
 
 .headline {
   font-size: 24px;
   color: white;
+  cursor: pointer;
+}
+
+.active {
+  scale: 1.1;
+  border-bottom: 1px solid rgb(11, 223, 159);
 }
 
 .nav-bar {
   display: flex;
   list-style: none;
-  gap: 12px;
+  gap: 20px;
   color: rgb(11, 223, 159);
   font-size: 16px;
+  padding-right: 24px;
+}
+
+.nav-bar-item {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.nav-bar-item:hover {
+  scale: 1.1;
 }

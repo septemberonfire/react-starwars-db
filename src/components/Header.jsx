@@ -1,19 +1,38 @@
 import '../styles/header.css'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 function Header() {
+
+  const navigate = useNavigate()
+  const location = useLocation()
+
+  const routes = [
+    {
+      pathname: '/people',
+      name: 'People'
+    },
+    {
+      pathname: '/planets',
+      name: 'Planets'
+    },
+    {
+      pathname: '/starships',
+      name: 'Starships'
+    },
+  ]
+
+
   return (
     <div className="header">
-      <h3 className="headline">Star Wars DB</h3>
+      <h3 className="headline" onClick={() => navigate("/")}>Star Wars DB</h3>
       <ul className="nav-bar">
-        <li className="nav-bar-item">
-          People
-        </li>
-        <li className="nav-bar-item">
-          Planets
-        </li>
-        <li className="nav-bar-item">
-          Starships
-        </li>
+        {routes.map((route) => {
+          return (
+            <li className={`nav-bar-item ${location.pathname === route.pathname && 'active'}`} key={route.pathname} onClick={() => navigate(route.pathname)}>
+              {route.name}
+            </li>
+          )
+        })}
       </ul>
     </div>
   )

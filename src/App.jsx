@@ -1,28 +1,44 @@
-import API from "./services/swapi-service.js";
-import { useEffect, useState } from "react";
-import Header from './components/Header.jsx'
-import RandomPlanet from "./components/RandomPlanet.jsx";
-import ItemList from "./components/ItemList.jsx";
-import PeopleDetails from "./components/PeopleDetails.jsx";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import MainPage from "./components/MainPage.jsx";
+import People from "./components/People.jsx";
+import Planets from "./components/Planets.jsx";
+import Starships from "./components/Starships.jsx";
+import Layout from "./components/Layout.jsx";
 import './styles/app.css'
 
 function App() {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    API.getAllPlanets(setData);
-  }, []);
+
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <Layout />,
+      children: [
+        {
+          index: true,
+          element: <MainPage />
+        },
+        {
+          path: 'planets',
+          element: <Planets />
+        },
+        {
+          path: 'people',
+          element: <People />
+        },
+        {
+          path: 'starships',
+          element: <Starships />
+        },
+      ]
+    },
+    {
+      path: "*",
+      element: <div>404</div>,
+    },
+  ]);
 
   return (
-    <>
-    <div className="container">
-      <Header />
-      <RandomPlanet />
-      <div className="main-wrap">
-
-      <ItemList />
-      </div>
-    </div>
-    </>
+    <RouterProvider router={router} />
   );
 }
 
