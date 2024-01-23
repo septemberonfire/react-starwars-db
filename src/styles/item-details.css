@@ -9,12 +9,12 @@
   height: fit-content;
 }
 
-.person-img {
+.item-img {
   border-radius: 8px;
   width: 30%;
 }
 
-.person-info {
+.item-info {
   display: flex;
   flex-direction: column;
   gap: 12px;

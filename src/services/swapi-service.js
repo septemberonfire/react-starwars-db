@@ -23,7 +23,13 @@ const getPerson = async (setData, id) => {
 
 const getAllPlanets = async (setData) => {
   const res = await getResource("/planets/");
-  setData(res.results);
+  const planetsWithID = res.results.map((el, id) => {
+    return {
+      ...el,
+      id
+    }
+  })
+  setData(planetsWithID);
 };
 
 const getPlanet = async (setData, id) => {
@@ -40,7 +46,13 @@ const getPlanet = async (setData, id) => {
 
 const getAllStarships = async (setData) => {
   const res = await getResource("/starships/");
-  setData(res.results);
+  const starshipsWithID = res.results.map((el, id) => {
+    return {
+      ...el,
+      id
+    }
+  })
+  setData(starshipsWithID);
 };
 
 const getStarship = async (setData, id) => {

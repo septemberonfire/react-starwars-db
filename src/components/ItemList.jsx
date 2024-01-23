@@ -1,15 +1,13 @@
 import { useEffect, useState } from "react";
-import API from "../services/swapi-service";
 import Loader from "./Loader";
-import PeopleDetails from "./PeopleDetails";
 import "../styles/item-list.css";
 
-const ItemList = () => {
+const ItemList = ({ getData, chooseItem }) => {
   const [list, setList] = useState(null);
   const [hero, setHero] = useState(null);
 
   useEffect(() => {
-    API.getAllPeople(setList);
+    getData(setList);
   }, []);
 
   const renderItems = (arr) => {
@@ -19,8 +17,9 @@ const ItemList = () => {
           <li
             className="item"
             onClick={() => {
-              const person = arr.find((el) => el.id === id);
-              setHero(person);
+              const item = arr.find((el) => el.id === id);
+              setHero(item);
+              chooseItem(item);
             }}
             key={id}
           >
@@ -35,10 +34,9 @@ const ItemList = () => {
 
   return (
     <>
-    <div className="item-list-wrap">
-      <ul className="item-list">{list === null ? <Loader /> : items}</ul>
-    </div>
-    <PeopleDetails hero={hero} />
+      <div className="item-list-wrap">
+        <ul className="item-list">{list === null ? <Loader /> : items}</ul>
+      </div>
     </>
   );
 };
